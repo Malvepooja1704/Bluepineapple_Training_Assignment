@@ -13,6 +13,7 @@ C++ Program Folder Contain the Assignments as Follow:
 9.Matrix multiplication
 10.Palindrome Check
 11.Perfect number in given range
+12.Reverse Polish notation
 
 python Program:
 1.Book Managament system using map
