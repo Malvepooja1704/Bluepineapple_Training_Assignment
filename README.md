@@ -17,3 +17,9 @@ C++ Program Folder Contain the Assignments as Follow:
 
 python Program:
 1.Book Managament system using map
+
+HTML_CSS:
+1.Complex table
+2.Library Table
+
+Library management System
