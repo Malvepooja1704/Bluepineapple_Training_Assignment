@@ -3,6 +3,15 @@
     <head>
         <title>Library Table</title>
         <link rel="stylesheet" href="style_lib.css">
+        <script type="text/javascript">
+            function show_row_data(){
+            var book_id = document.getElementById("row").value;
+            var book_act = document.getElementById("book_id").value;
+            console.log(book_id);
+            var b = document.getElementById("lib_table").rows[book_id].innerHTML;
+            document.write(b);
+          }
+        </script>
     </head>
 
     <body>
@@ -61,5 +70,8 @@
             </tr>
 
         </table>
+        <input type="text" id="row" placeholder="Enter row Number"/><br>
+        <button type="submit" onclick="show_row_data()">Submit</button>
+        <p id="book_id">
     </body>
 </html>

@@ -3,12 +3,39 @@
     <head>
         <title>Library Table</title>
         <link rel="stylesheet" href="style_lib.css">
+        <script type="text/javascript">
+            function sort_column_Asc(){
+                var x,y;
+                var column_name = document.getElementById("column_name");
+                var switching_row = true;
+
+                while(switching_row){
+                    switching_row = false;
+                    var rows = column_name.rows;
+
+                    for(let i=1;i<(rows.length - 1);i++){
+                        var Switch = false;
+                         x = rows[i].getElementByTagName("TD")[0].value;
+                         y = rows[i + 1].getElementByTagName("TD")[0].value;
+                         
+                         if(x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()){
+                             Switch = true;
+                             break;
+                         }
+                    }
+                    if(Switch){
+                        rows[i].parentNode.insertBefore(rows[i+1],rows[i]);
+                        switching_row = true;
+                    }
+                }
+            }
+        </script>
     </head>
 
     <body>
         <table id="lib_table">
             <tr>
-                <th>No.</th>
+                <th >No.</th>
                 <th>Title</th>
                 <th>Author</th>
                 <th>Subject</th>
@@ -61,5 +88,8 @@
             </tr>
 
         </table>
+        <p><input type="text" id="column_name" placeholder="Enter column Name"/></p>
+        <p><button type="submit" onclick="sort_column_Asc()">Submit</button></p>
+        <p id="column_name">
     </body>
 </html>
