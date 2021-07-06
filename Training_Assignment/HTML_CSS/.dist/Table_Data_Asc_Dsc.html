@@ -5,29 +5,52 @@
         <link rel="stylesheet" href="style_lib.css">
         <script type="text/javascript">
             function sort_column_Asc(){
-                var x,y;
-                var column_name = document.getElementById("column_name");
-                var switching_row = true;
+                 var data, rows, swapping, i,x,y,shouldSwitch;
+                 data = document.getElementById("lib_table");
+                 swapping = true;
+                 while(swapping){
+                    swapping = false;
+                    rows = data.rows;
+                    for(i = 1; i < (rows.length - 1); i++){
+                        shouldSwitch = false;
 
-                while(switching_row){
-                    switching_row = false;
-                    var rows = column_name.rows;
+                        x = rows[i].getElementsByTagName("TD")[0];
+                        y = rows[i+1].getElementsByTagName("TD")[0];
 
-                    for(let i=1;i<(rows.length - 1);i++){
-                        var Switch = false;
-                         x = rows[i].getElementByTagName("TD")[0].value;
-                         y = rows[i + 1].getElementByTagName("TD")[0].value;
-                         
-                         if(x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()){
-                             Switch = true;
-                             break;
-                         }
+                        if(x.innerHTML > y.innerHTML){
+                            shouldSwitch = true;
+                            break;
+                        }
                     }
-                    if(Switch){
+                    if(shouldSwitch){
                         rows[i].parentNode.insertBefore(rows[i+1],rows[i]);
-                        switching_row = true;
+                        swapping = true;
                     }
-                }
+                 }
+            }
+            function sort_column_Dsc(){
+                 var data, rows, swapping, i,x,y,shouldSwitch;
+                 data = document.getElementById("lib_table");
+                 swapping = true;
+                 while(swapping){
+                    swapping = false;
+                    rows = data.rows;
+                    for(i = 1; i < (rows.length - 1); i++){
+                        shouldSwitch = false;
+
+                        x = rows[i].getElementsByTagName("TD")[0];
+                        y = rows[i+1].getElementsByTagName("TD")[0];
+
+                        if(x.innerHTML < y.innerHTML){
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                    if(shouldSwitch){
+                        rows[i].parentNode.insertBefore(rows[i+1],rows[i]);
+                        swapping = true;
+                    }
+                 }
             }
         </script>
     </head>
@@ -43,21 +66,40 @@
                 <th>Price</th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Data Structures</td>
-                <td>Lipschute</td>
-                <td>DS</td>
-                <td>McGraw</td>
-                <td>217.00</td>
-            </tr>
-
-            <tr>
                 <td>2</td>
                 <td>DOS Guide</td>
                 <td>NORTRON</td>
                 <td>OS</td>
                 <td>PHI</td>
                 <td>175.00</td>
+            </tr>
+
+            
+            <tr>
+                <td>5</td>
+                <td>COBOL</td>
+                <td>Stern</td>
+                <td>Programming</td>
+                <td>John W</td>
+                <td>1000.00</td>
+            </tr>
+
+
+            <tr>
+                <td>4</td>
+                <td>Dbase Dummies</td>
+                <td>Palmer</td>
+                <td>DBMS</td>
+                <td>PustakM</td>
+                <td>130.00</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Data Structures</td>
+                <td>Lipschute</td>
+                <td>DS</td>
+                <td>McGraw</td>
+                <td>217.00</td>
             </tr>
 
             <tr>
@@ -69,27 +111,9 @@
                 <td>270.00</td>
             </tr>
 
-            <tr>
-                <td>4</td>
-                <td>Dbase Dummies</td>
-                <td>Palmer</td>
-                <td>DBMS</td>
-                <td>PustakM</td>
-                <td>130.00</td>
-            </tr>
-
-            <tr>
-                <td>5</td>
-                <td>COBOL</td>
-                <td>Stern</td>
-                <td>Programming</td>
-                <td>John W</td>
-                <td>1000.00</td>
-            </tr>
-
         </table>
-        <p><input type="text" id="column_name" placeholder="Enter column Name"/></p>
-        <p><button type="submit" onclick="sort_column_Asc()">Submit</button></p>
-        <p id="column_name">
+        <p><input type="text" id="column_name"/></p>
+        <p><button type="submit" onclick="sort_column_Asc()">Ascending Sort</button></p>
+        <p><button type="submit" onclick="sort_column_Dsc()">Descending Sort</button></p>
     </body>
 </html>
