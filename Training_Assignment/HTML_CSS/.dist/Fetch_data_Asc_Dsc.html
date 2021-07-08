@@ -1,0 +1,158 @@
+<html>
+
+<head>
+    <title>Book Library</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+        
+        table {
+            width: 100%;
+            background-color: #f1f1c1;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #eee;
+        }
+        
+        table tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        
+        table th {
+            color: white;
+            background-color: black;
+        }
+    </style>
+    <script type="text/javascript">
+        function sort_table_by_bookid() {
+            var col_no = document.getElementById("textbox").value;
+            var col_name = document.getElementById("textbox").value;
+            console.log(col_no);
+            console.log(col_name);
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("tableData");
+            switching = true;
+            var col_size = 3;
+            for (var i = 0; i < col_size; i++) {
+                var colname = document.getElementById("bookid").headers;
+                console.log(colname);
+            }
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+
+                for (i = 1; i < (rows.length - 1); i++) {
+
+                    shouldSwitch = false;
+
+                    x = rows[i].getElementsByTagName("TD")[col_no];
+                    y = rows[i + 1].getElementsByTagName("TD")[col_no];
+
+                    if (x.innerHTML > y.innerHTML) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+
+        function sort_table_by_book() {
+            var col_name = document.getElementById("textbox").value;
+            console.log(col_name);
+            var table = document.getElementById("tableData");
+            var txt = "";
+            var rows, switching, i, x, y, shouldSwitch;
+            switching = true;
+            var col_no = 0;
+            for (col_no = 0; col_no < table.rows[1].cells.length; col_no++) {
+                txt = table.rows[1].cells[col_no].headers;
+
+                if (col_name.localeCompare(txt)) {
+                    console.log(col_no);
+                    break;
+                }
+            }
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+
+                for (i = 1; i < (rows.length - 1); i++) {
+
+                    shouldSwitch = false;
+
+                    x = rows[i].getElementsByTagName("TD")[col_no];
+                    y = rows[i + 1].getElementsByTagName("TD")[col_no];
+
+                    if (x.innerHTML > y.innerHTML) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table id="tableData">
+        <caption>
+            <b>Book records</b>
+        </caption>
+        <tr>
+            <th id="Book ID">Book ID</th>
+            <th id="Title">Title</th>
+            <th id="Author">Author</th>
+            <th id="Cost">Cost</th>
+        </tr>
+        <tr>
+            <td headers="Book ID">2</td>
+            <td headers="Title">An Autobiography</td>
+            <td headers="Author">Jawaharlal Nehru</td>
+            <td headers="Cost">500</td>
+        </tr>
+        <tr>
+            <td headers="Book ID">1</td>
+            <td headers="Title">An idealist View of Life</td>
+            <td headers="Author">Dr.S. Radhakrishnan</td>
+            <td headers="Cost">399</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Arion and the Dolphin</td>
+            <td>Vikram Seth</td>
+            <td>299</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Arthashastra</td>
+            <td>Kautilya</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>A Secular Agenda</td>
+            <td>Arun Shourie</td>
+            <td>500</td>
+        </tr>
+    </table>
+    <p>Sort by Author name</p>
+    <input type="text" id="textbox" />
+    <button title="submit" id="button" onclick="sort_table_by_id()">submit</button>
+
+</body>
+
+</html>
