@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Change content of html</title>
+    <script type="text/javascript">
+        function changeContent() {
+            var data = document.getElementById("demo").innerHTML = "Hello JavaScript";
+            document.write(data);
+            window.print(data);
+        }
+    </script>
+</head>
+
+<body>
+    <p id="demo"> Click me to change the content of Html
+    </p>
+    <button type="button" onclick="changeContent()"> Clicl Me!
+        </button>
+</body>
+
+</html>

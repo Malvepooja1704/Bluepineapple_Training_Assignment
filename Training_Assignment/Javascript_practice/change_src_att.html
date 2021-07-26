@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Change Src Attribute</title>
+    <script type="text/javascript">
+        function changeContent() {
+            var img1 = document.getElementById("myImage").src = "images/img2.jpeg";
+        }
+    </script>
+</head>
+
+<body>
+    <p> Change the src content attribute value
+    </p>
+    <button type="button" onclick="changeContent()"> Click to change pic!
+        </button>
+    <img id="myImage" src="images/img1.jpg" style="width:100px">
+</body>
+
+</html>
