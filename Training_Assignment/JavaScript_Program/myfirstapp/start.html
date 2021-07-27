@@ -3,20 +3,39 @@
 
 <head>
     <title>Complex Calculation</title>
+    <link rel="stylesheet" href="style.css">
+    <script type=module src="index.js"></script>
 </head>
 
 <body>
-    <p>Real number 1:</p>
-    <input type="number" placeholder="enter real number">
-    <p>Imaginary number 1:</p>
-    <input type="number" placeholder="enter imaginary number">
-    <p>Real number 2:</p>
-    <input type="number" placeholder="enter real number"><br>
-    <p>Imaginary number 2:</p>
-    <input type="number" placeholder="enter imaginary number">
-    <br><br> <button type="submit" onclick="getData()">Submit</button>
+    <form class="form" method="post" action="/complexNoValue">
+        <div id="card">
+            <div class="formbox">
+                <lable for="real1">Complex no. 1 real: </lable>
+                <input type="text" id="real1" name="real1">
+                <br>
+                <lable for="img1">Complex no. 1 img: </lable>
+                <input type="text" id="img1" name="img1">
+            </div>
+            <div class="formbox">
+                <lable for="real2">Complex no. 2 real: </lable>
+                <input type="text" id="real2" name="real2">
+                <br>
+                <lable for="img2">Complex no. 2 img: </lable>
+                <input type="text" id="img2" name="img2">
+            </div>
+        </div>
+
+        <button class="btn" type=" submit " value="add " formaction="/add ">Addition</button>
+        <button class="btn" type="submit " value="sub " formaction="/sub ">Substraction</button>
+        <button class="btn" type="submit " value="mul " formaction="/mul ">Multiplication</button>
+        <button class="btn" type="submit " value="div" formaction="/div ">Division</button>
+    </form>
+
+    <form>
+        <p id="latitude "></p>
+        <p id="longitude "></p>
+    </form>
 </body>
-<script src="index.js">
-</script>
 
 </html>
